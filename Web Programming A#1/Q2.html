@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,262 +7,313 @@
     <title>Job Application Form</title>
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
         }
 
         .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
             margin-top: 50px;
         }
 
+        h2, h4 {
+            color: #007bff;
+        }
+
+        label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-control, .form-select {
+            border-radius: 0.375rem;
+            padding: 10px 12px;
+            background-color: #f9fafb;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+            border-color: #007bff;
+        }
+
+        button {
+            border-radius: 50px;
+            font-size: 16px;
+            padding: 12px 24px;
+            transition: background-color 0.3s;
+        }
+
+        button.btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        button.btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        button.btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        button.btn-secondary:hover {
+            background-color: #565e64;
+        }
+
+        table {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+        }
+
         .table-responsive {
-            margin-top: 30px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            button {
+                width: 100%;
+            }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h2 class="text-center">Job Application Form</h2>
-        <form id="applicationForm">
-            <!-- Personal Information -->
+        <form id="jobForm">
             <h4>Personal Information</h4>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
-                </div>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" required>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="1234567890">
-                </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10}" placeholder="1234567890">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
             </div>
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" required>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control" id="city" name="city" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="state" class="form-label">State</label>
-                    <input type="text" class="form-control" id="state" name="state" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="zipCode" class="form-label">ZIP Code</label>
-                    <input type="text" class="form-control" id="zipCode" name="zipCode" required pattern="[0-9]{5}" placeholder="12345">
-                </div>
+                <input type="text" class="form-control" id="address" required>
             </div>
 
-            <!-- Resume and Cover Letter -->
             <h4>Resume and Cover Letter</h4>
             <div class="mb-3">
-                <label for="coverLetter" class="form-label">Cover Letter</label>
-                <textarea class="form-control" id="coverLetter" name="coverLetter"></textarea>
+                <label for="resume" class="form-label">Upload Resume</label>
+                <input type="file" class="form-control" id="resume" required>
             </div>
             <div class="mb-3">
-                <label for="resume" class="form-label">Upload Resume</label>
-                <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx,.txt">
+                <label for="coverLetter" class="form-label">Cover Letter</label>
+                <textarea class="form-control" id="coverLetter" required></textarea>
             </div>
 
-            <!-- Education -->
             <h4>Education</h4>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="educationLevel" class="form-label">Highest Level of Education Attained</label>
-                    <input type="text" class="form-control" id="educationLevel" name="educationLevel" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="schoolName" class="form-label">Name of School/University</label>
-                    <input type="text" class="form-control" id="schoolName" name="schoolName" required>
-                </div>
+            <div class="mb-3">
+                <label for="educationLevel" class="form-label">Highest Level of Education Attained</label>
+                <input type="text" class="form-control" id="educationLevel" required>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="major" class="form-label">Major/Area of Study</label>
-                    <input type="text" class="form-control" id="major" name="major" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="graduationYear" class="form-label">Graduation Year</label>
-                    <input type="text" class="form-control" id="graduationYear" name="graduationYear" required pattern="[0-9]{4}" placeholder="YYYY">
-                </div>
+            <div class="mb-3">
+                <label for="schoolName" class="form-label">Name of School/University</label>
+                <input type="text" class="form-control" id="schoolName" required>
+            </div>
+            <div class="mb-3">
+                <label for="major" class="form-label">Major/Area of Study</label>
+                <input type="text" class="form-control" id="major" required>
+            </div>
+            <div class="mb-3">
+                <label for="gradYear" class="form-label">Graduation Year</label>
+                <input type="number" class="form-control" id="gradYear" required>
             </div>
 
-            <!-- Employment History -->
             <h4>Employment History</h4>
             <div class="mb-3">
                 <label for="jobTitle" class="form-label">Previous Job Title</label>
-                <input type="text" class="form-control" id="jobTitle" name="jobTitle" required>
+                <input type="text" class="form-control" id="jobTitle" required>
             </div>
             <div class="mb-3">
                 <label for="companyName" class="form-label">Company Name</label>
-                <input type="text" class="form-control" id="companyName" name="companyName" required>
+                <input type="text" class="form-control" id="companyName" required>
             </div>
             <div class="mb-3">
                 <label for="employmentDates" class="form-label">Employment Dates</label>
-                <input type="text" class="form-control" id="employmentDates" name="employmentDates" required placeholder="MM/YYYY - MM/YYYY">
+                <input type="text" class="form-control" id="employmentDates" required>
             </div>
             <div class="mb-3">
                 <label for="jobResponsibilities" class="form-label">Job Responsibilities</label>
-                <textarea class="form-control" id="jobResponsibilities" name="jobResponsibilities"></textarea>
+                <textarea class="form-control" id="jobResponsibilities" required></textarea>
             </div>
 
-            <!-- Skills -->
-            <h4>Skills and Certifications</h4>
+            <h4>Skills & Certifications</h4>
             <div class="mb-3">
                 <label for="skills" class="form-label">Skills</label>
-                <textarea class="form-control" id="skills" name="skills" required></textarea>
+                <textarea class="form-control" id="skills" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="certifications" class="form-label">Certifications</label>
-                <textarea class="form-control" id="certifications" name="certifications"></textarea>
+                <textarea class="form-control" id="certifications"></textarea>
             </div>
 
-            <!-- Availability -->
             <h4>Availability</h4>
             <div class="mb-3">
                 <label for="startDate" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="startDate" name="startDate" required>
+                <input type="date" class="form-control" id="startDate" required>
             </div>
             <div class="mb-3">
-                <label for="relocate" class="form-label">Willing to Relocate?</label>
-                <select class="form-control" id="relocate" name="relocate" required>
+                <label for="relocate" class="form-label">Willingness to Relocate</label>
+                <select class="form-control" id="relocate" required>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="workSchedule" class="form-label">Preferred Work Schedule</label>
-                <input type="text" class="form-control" id="workSchedule" name="workSchedule">
+                <label for="schedule" class="form-label">Preferred Work Schedule</label>
+                <input type="text" class="form-control" id="schedule" required>
             </div>
 
-            <!-- References -->
             <h4>References</h4>
             <div class="mb-3">
                 <label for="referenceName" class="form-label">Reference Name</label>
-                <input type="text" class="form-control" id="referenceName" name="referenceName" required>
+                <input type="text" class="form-control" id="referenceName" required>
             </div>
             <div class="mb-3">
                 <label for="referenceContact" class="form-label">Reference Contact Information</label>
-                <input type="text" class="form-control" id="referenceContact" name="referenceContact" required>
+                <input type="text" class="form-control" id="referenceContact" required>
             </div>
             <div class="mb-3">
-                <label for="referenceRelationship" class="form-label">Relationship to Applicant</label>
-                <input type="text" class="form-control" id="referenceRelationship" name="referenceRelationship" required>
+                <label for="relationship" class="form-label">Relationship to Applicant</label>
+                <input type="text" class="form-control" id="relationship" required>
             </div>
 
-            <!-- Additional Questions -->
             <h4>Additional Questions</h4>
             <div class="mb-3">
                 <label for="whyCompany" class="form-label">Why do you want to work for this company?</label>
-                <textarea class="form-control" id="whyCompany" name="whyCompany" required></textarea>
+                <textarea class="form-control" id="whyCompany" required></textarea>
             </div>
 
-            <!-- Consent and Privacy Policy -->
+            <h4>Consent and Agreement</h4>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="privacyPolicyCheck" name="privacyPolicyCheck" required />
-                <label class="form-check-label" for="privacyPolicyCheck">I acknowledge the Privacy Policy.</label>
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="termsCheck" name="termsCheck" required />
+                <input type="checkbox" class="form-check-input" id="termsCheck" required>
                 <label class="form-check-label" for="termsCheck">I agree to the terms and conditions.</label>
             </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="privacyPolicy" required>
+                <label class="form-check-label" for="privacyPolicy">I acknowledge the privacy policy.</label>
+            </div>
 
-            <button type="submit" class="btn btn-primary">Submit Application</button>
+            <button type="button" onclick="submitForm()" class="btn btn-primary">Submit Application</button>
         </form>
 
-        <button id="viewApplicationsBtn" class="btn btn-secondary mt-3">View Applications as Table</button>
+        <button id="viewApplicationsBtn" onclick="viewApplications()" class="btn btn-secondary mt-3">View Applications as Table</button>
         <div class="table-responsive mt-4">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Full Name</th>
-                        <th>Email Address</th>
-                        <th>Phone Number</th>
-                        <th>Education</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>School</th>
+                        <th>Major</th>
+                        <th>Previous Job</th>
                         <th>Skills</th>
-                        <th>References</th>
+                        <th>Reference</th>
+                        <th>Why This Company</th>
                     </tr>
                 </thead>
-                <tbody id="applicationsTableBody">
-                    <!-- Filled dynamically -->
-                </tbody>
+                <tbody id="applicationsTableBody"></tbody>
             </table>
         </div>
     </div>
 
     <script>
-        const applicationForm = document.getElementById('applicationForm');
-        const applicationsTableBody = document.getElementById('applicationsTableBody');
-        const viewApplicationsBtn = document.getElementById('viewApplicationsBtn');
+        let applications = [];
 
-        // On form submit
-        applicationForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData(applicationForm);
+        function submitForm() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const schoolName = document.getElementById('schoolName').value;
+            const major = document.getElementById('major').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+            const skills = document.getElementById('skills').value;
+            const referenceName = document.getElementById('referenceName').value;
+            const whyCompany = document.getElementById('whyCompany').value;
+
             const applicationData = {
-                fullName: `${formData.get('firstName')} ${formData.get('lastName')}`,
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                education: `${formData.get('educationLevel')} - ${formData.get('schoolName')}`,
-                skills: formData.get('skills'),
-                reference: `${formData.get('referenceName')} (${formData.get('referenceRelationship')})`
+                fullName: `${firstName} ${lastName}`,
+                email,
+                phone,
+                address,
+                schoolName,
+                major,
+                jobTitle,
+                skills,
+                referenceName,
+                whyCompany
             };
 
-            // Get existing applications from localStorage, or initialize an empty array
-            let applications = JSON.parse(localStorage.getItem('applications')) || [];
-
-            // Add the new application data to the array
+         
             applications.push(applicationData);
 
-            // Save the updated applications array back to localStorage
-            localStorage.setItem('applications', JSON.stringify(applications));
+       
+            console.log(applicationData);
 
-            // Add the new row to the table
-            addApplicationRow(applicationData);
-
-            // Reset the form after submission
-            applicationForm.reset();
-        });
-
-        // Function to add a row to the table
-        function addApplicationRow(application) {
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${application.fullName}</td>
-                <td>${application.email}</td>
-                <td>${application.phone}</td>
-                <td>${application.education}</td>
-                <td>${application.skills}</td>
-                <td>${application.reference}</td>
-            `;
-            applicationsTableBody.appendChild(newRow);
+            alert('Application Submitted Successfully');
+            document.getElementById('jobForm').reset();
         }
 
-        // Load and display the applications when the "View Applications" button is clicked
-        viewApplicationsBtn.addEventListener('click', function () {
-            // Clear the current table content
-            applicationsTableBody.innerHTML = '';
+        function viewApplications() {
+            const tableBody = document.getElementById('applicationsTableBody');
+            tableBody.innerHTML = '';
 
-            // Get applications from localStorage
-            const applications = JSON.parse(localStorage.getItem('applications')) || [];
-
-            // Populate the table with stored applications
-            applications.forEach(addApplicationRow);
-        });
+            applications.forEach(application => {
+                const row = `
+                    <tr>
+                        <td>${application.fullName}</td>
+                        <td>${application.email}</td>
+                        <td>${application.phone}</td>
+                        <td>${application.address}</td>
+                        <td>${application.schoolName}</td>
+                        <td>${application.major}</td>
+                        <td>${application.jobTitle}</td>
+                        <td>${application.skills}</td>
+                        <td>${application.referenceName}</td>
+                        <td>${application.whyCompany}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
     </script>
-
 </body>
-
 </html>
