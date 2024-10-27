@@ -44,7 +44,7 @@ function App() {
       <div className="flex mb-6 w-2/3 lg:w-1/2 my-5">
         <input
           type="text"
-          placeholder="Enter a City..."
+          placeholder="Enter a City...."
           className="w-full p-4 rounded-l-full outline-none bg-white text-gray-700 shadow-md"
           value={city}
           onChange={(e) => setCity(e.target.value)}
