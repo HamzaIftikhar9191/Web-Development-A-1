@@ -58,20 +58,29 @@ function App() {
       </div>
 
       {weatherData && (
-        <div className="bg-white bg-opacity-20 rounded-lg p-8 text-center shadow-lg">
-          <h2 className="text-4xl font-bold">{weatherData.name}</h2>
-          <p className="text-lg font-semibold">
-            {weatherData.weather[0].description}
-          </p>
-          <p className="text-6xl font-bold my-4">
-            {Math.round(weatherData.main.temp)}°C
-          </p>
+        <div className="bg-white bg-opacity-20 rounded-lg p-8 shadow-lg flex items-center justify-center text-center space-x-6 w-[600px] h-[300px]">
+        {/* Weather Icon */}
+        <div className="flex flex-col items-center">
           <img
             src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
             alt="weather icon"
-            className="w-20 h-20 mx-auto"
+            className="w-20 h-20"
           />
         </div>
+      
+        {/* Weather Details */}
+        <div className="text-left">
+          <p className="text-lg font-semibold text-black">Today</p>
+          <h2 className="text-5xl font-bold text-black">{weatherData.name}</h2>
+          <p className="text-xl mt-2 text-black">
+            Temperature: {Math.round(weatherData.main.temp)}°C
+          </p>
+          <p className="text-lg text-gray-700 mt-1 text-black">
+            {weatherData.weather[0].description}
+          </p>
+        </div>
+      </div>
+      
       )}
 
       {forecastData && (
