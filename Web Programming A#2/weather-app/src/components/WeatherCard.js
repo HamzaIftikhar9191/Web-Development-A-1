@@ -5,7 +5,8 @@ function WeatherCard({ dayData }) {
   const dayName = date.toLocaleDateString("en-US", { weekday: 'long' });
 
   return (
-    <div className="bg-white bg-opacity-30 p-4 rounded-lg text-center shadow-md w-40 h-40">
+    <div className="bg-white bg-opacity-30 p-4 rounded-lg text-center shadow-md w-40 h-40 rounded-3xl relative 
+                    md:-top-[120px] "> {/* Apply -top and z-index on tablet screens and above */}
       <p className="text-lg text-black font-bold">{dayName}</p>
       <img
         src={`http://openweathermap.org/img/wn/${dayData.weather[0].icon}@2x.png`}

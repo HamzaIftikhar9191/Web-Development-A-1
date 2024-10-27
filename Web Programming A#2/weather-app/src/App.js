@@ -58,15 +58,15 @@ function App() {
       </div>
 
       {weatherData && (
-        <div className="bg-white bg-opacity-20 rounded-lg p-8 shadow-lg flex items-center justify-center text-center space-x-6 w-[300px] h-[200px] md:w-[600px] md:h-[300px]">
-          <div className="flex flex-col items-center">
+        <div className="bg-white bg-opacity-20 rounded-lg p-8 shadow-lg flex items-center justify-center text-center space-x-6 w-[300px] h-[200px] md:w-[600px] md:h-[300px] lg:w-[800px] rounded-2xl">
+          <div className="flex flex-col items-center md:mb-[50px]">
             <img
               src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
               alt="weather icon"
               className="w-20 h-20"
             />
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col text-left md:mb-[50px]">
             <p className="text-lg font-semibold text-black">Today</p>
             <h2 className="text-4xl font-bold text-black">{weatherData.name}</h2>
             <p className="text-xl font-semibold mt-2 text-black">
