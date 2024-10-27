@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherCard from "../src/components/WeatherCard";
+import WeatherCard from "./components/WeatherCard";
 
 const API_KEY = "926073da7bf5515c80d687218895d5c0";
 
@@ -41,11 +41,11 @@ function App() {
       className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-white"
       style={{ backgroundImage: `url('/Images/background.jpg')` }}
     >
-      <div className="flex mb-6 w-2/3 lg:w-1/2">
+      <div className="flex mb-6 w-2/3 lg:w-1/2 my-5">
         <input
           type="text"
           placeholder="Enter a City..."
-          className="w-full p-4 rounded-l-full outline-none bg-white text-gray-700 shadow-md text-start"
+          className="w-full p-4 rounded-l-full outline-none bg-white text-gray-700 shadow-md"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
@@ -58,33 +58,29 @@ function App() {
       </div>
 
       {weatherData && (
-        <div className="bg-white bg-opacity-20 rounded-lg p-8 shadow-lg flex items-center justify-center text-center space-x-6 w-[600px] h-[300px]">
-        {/* Weather Icon */}
-        <div className="flex flex-col items-center">
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt="weather icon"
-            className="w-20 h-20"
-          />
+        <div className="bg-white bg-opacity-20 rounded-lg p-8 shadow-lg flex items-center justify-center text-center space-x-6 w-[300px] h-[200px] md:w-[600px] md:h-[300px]">
+          <div className="flex flex-col items-center">
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+              alt="weather icon"
+              className="w-20 h-20"
+            />
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="text-lg font-semibold text-black">Today</p>
+            <h2 className="text-4xl font-bold text-black">{weatherData.name}</h2>
+            <p className="text-xl font-semibold mt-2 text-black">
+              Temperature: {Math.round(weatherData.main.temp)}°C
+            </p>
+            <p className="text-lg text-gray-700 mt-1 text-black">
+              {weatherData.weather[0].description}
+            </p>
+          </div>
         </div>
-      
-        {/* Weather Details */}
-        <div className="text-left">
-          <p className="text-lg font-semibold text-black">Today</p>
-          <h2 className="text-5xl font-bold text-black">{weatherData.name}</h2>
-          <p className="text-xl mt-2 text-black">
-            Temperature: {Math.round(weatherData.main.temp)}°C
-          </p>
-          <p className="text-lg text-gray-700 mt-1 text-black">
-            {weatherData.weather[0].description}
-          </p>
-        </div>
-      </div>
-      
       )}
 
       {forecastData && (
-        <div className="flex space-x-4 mt-8">
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-8">
           {forecastData.map((day, index) => (
             <WeatherCard key={index} dayData={day} />
           ))}
