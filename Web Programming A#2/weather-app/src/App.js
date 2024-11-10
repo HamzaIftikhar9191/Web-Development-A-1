@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherCard from "./components/WeatherCard";
+import "./components/animation.css"
 
 const API_KEY = "926073da7bf5515c80d687218895d5c0";
 
@@ -63,7 +64,7 @@ function App() {
             <img
               src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
               alt="weather icon"
-              className="w-20 h-20"
+              className="w-20 h-20 weather-icon"
             />
           </div>
           <div className="flex flex-col text-left md:mb-[50px]">
